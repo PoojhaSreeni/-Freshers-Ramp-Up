@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="b">
+<div class="thala">
+<h1>TRAVIGO</h1>
+<ul>
+<li><a href="base.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</div>
+<form class="f">
+<b>Name</b>:<br> <input type="text" name="name">
+<br><br>
+<b>Email</b>:<br> <input type="text" name="Email">
+<br><br>
+<b>Heads</b>:<br><input type="number" id="heads" name="heads" value="0">
+<br><br>
+<label for="city"><b>Choose the city to visit</b>:</label>
+<select name="city" id="city">
+<option value="Chennai">Chennai</option>
+<option value="Kanyakumari">Kanyakumari</option>
+</select>
+<br><br>
+<input type="button" onClick="calculatePrice()" value="Calculate"/>
+<br><br>
+<b>Total</b>:
+<input type="text" id="demo">
+<br><br>
+<b>Payment Mode</b>:
+<input type="radio" id="paylater" name="payment" value="paylater">
+<label for="paylater">Pay at office</label>
+<input type="radio" id="giftcard" name="payment" value="giftcard">
+<label for="giftcard">Gift Card</label><br><br>
+<button type="button" onClick="alert('Thanks for choosing us. We will Email you further details.')">Submit</button>
+</form>
+<script>
+function calculatePrice(){
+var head = document.getElementById("heads").value;
+var cite = document.getElementById("city").value;
+if(cite ==="Chennai")
+{
+var amt = 1000;
+document.getElementById("demo").value = amt * head;
+}
+if(cite ==="Kanyakumari")
+{
+var amt = 1500;
+document.getElementById("demo").value = amt * head;
+}
+}
+</script>
+</div>
+</body>
+</html>
