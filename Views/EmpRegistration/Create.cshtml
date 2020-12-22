@@ -1,0 +1,79 @@
+﻿@model EmployeePortal.Models.EmpClass
+
+@{
+    ViewData["Title"] = "Reg";
+}
+
+<h1 style="text-align:center; color:forestgreen;background-color:black;padding:10px">Employee's Registration Portal</h1>
+<hr />
+<style>
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+</style>
+<div class="row">
+    <div class="col-md-9">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmpName" class="control-label"></label>
+                <input asp-for="EmpName" class="form-control" placeholder="Employee Name" type="text"/>
+                <span asp-validation-for="EmpName" class="text-danger" style="color:red"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="EmpMailId" class="control-label"></label>
+                <input asp-for="EmpMailId" class="form-control" placeholder="Employee Email" type="text" />
+                <span asp-validation-for="EmpMailId" class="text-danger" style="color:red"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="EmpDOB" class="control-label"></label>
+                <br />
+                <input asp-for="EmpDOB" class="form-control" type="date" />
+                <br />
+                <span asp-validation-for="EmpDOB" class="text-danger" style="color:red"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Pwd" class="control-label"></label>
+                <input asp-for="Pwd" class="form-control" type="password" placeholder="Password"/>
+                <span asp-validation-for="Pwd" class="text-danger"style="color:red"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="ConfirmPwd" class="control-label"></label>
+                <input asp-for="ConfirmPwd" class="form-control" type="password" placeholder="Confirm Password" />
+                <span asp-validation-for="ConfirmPwd" class="text-danger"style="color:red"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                @*<input asp-for="Gender" class="form-control" />*@
+                <br />
+                <input type="radio" name="Gender" value="M" />Male
+                <input type="radio" name="Gender" value="F" />Female
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save Employee Record" class="btn btn-primary" />
+            </div>
+            <b>@ViewBag.message</b>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
