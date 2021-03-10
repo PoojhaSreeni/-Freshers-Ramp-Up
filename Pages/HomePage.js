@@ -8,7 +8,7 @@ class HomePage{
         await t 
         .click(this.LoginLink)
     }
+     
 
-    
 }
 export default new HomePage();
